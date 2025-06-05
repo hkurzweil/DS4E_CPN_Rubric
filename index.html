@@ -15,7 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6290C8 0%, #829CBC 100%);
             min-height: 100vh;
         }
         
@@ -47,27 +47,29 @@
         .slide:nth-child(2) { animation-delay: 0.2s; }
         .slide:nth-child(3) { animation-delay: 0.3s; }
         .slide:nth-child(4) { animation-delay: 0.4s; }
+        .slide:nth-child(5) { animation-delay: 0.5s; }
+        .slide:nth-child(6) { animation-delay: 0.6s; }
         
         h1 {
-            color: #2c3e50;
+            color: #4C4C4C;
             font-size: 2.5em;
             margin-bottom: 20px;
             text-align: center;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #6290C8, #EF4A23);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
         h2 {
-            color: #34495e;
+            color: #4C4C4C;
             font-size: 2em;
             margin-bottom: 25px;
-            border-bottom: 3px solid #3498db;
+            border-bottom: 3px solid #6290C8;
             padding-bottom: 10px;
         }
         
         h3 {
-            color: #2980b9;
+            color: #6290C8;
             font-size: 1.4em;
             margin-bottom: 15px;
         }
@@ -83,7 +85,7 @@
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border-radius: 12px;
             padding: 25px;
-            border-left: 5px solid #3498db;
+            border-left: 5px solid #6290C8;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -96,7 +98,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #3498db, #9b59b6);
+            background: linear-gradient(90deg, #6290C8, #EF4A23);
         }
         
         .partner-card:hover {
@@ -104,10 +106,15 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
         
+        .partner-card.tbd {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            border-left: 5px solid #829CBC;
+        }
+        
         .partner-name {
             font-size: 1.3em;
             font-weight: bold;
-            color: #2c3e50;
+            color: #4C4C4C;
             margin-bottom: 15px;
         }
         
@@ -130,9 +137,10 @@
             text-align: center;
         }
         
-        .score-high { border-left: 4px solid #27ae60; }
-        .score-med { border-left: 4px solid #f39c12; }
-        .score-low { border-left: 4px solid #e74c3c; }
+        .score-high { border-left: 4px solid #6290C8; }
+        .score-med { border-left: 4px solid #EF4A23; }
+        .score-low { border-left: 4px solid #4C4C4C; }
+        .score-tbd { border-left: 4px solid #829CBC; background: #f8f9fa; color: #666; }
         
         .details {
             margin-top: 15px;
@@ -146,7 +154,7 @@
         
         .detail-label {
             font-weight: 600;
-            color: #34495e;
+            color: #4C4C4C;
             min-width: 80px;
             margin-right: 10px;
         }
@@ -158,7 +166,7 @@
         
         .tech-tag {
             display: inline-block;
-            background: #3498db;
+            background: #6290C8;
             color: white;
             padding: 4px 8px;
             border-radius: 15px;
@@ -168,7 +176,7 @@
         }
         
         .summary-overview {
-            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            background: linear-gradient(135deg, #6290C8 0%, #829CBC 100%);
             color: white;
             border-radius: 15px;
             padding: 30px;
@@ -212,6 +220,16 @@
             margin-top: 10px;
         }
         
+        .tbd-note {
+            background: #e9ecef;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 10px;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
         .navigation {
             position: fixed;
             top: 20px;
@@ -220,7 +238,7 @@
         }
         
         .nav-btn {
-            background: #3498db;
+            background: #6290C8;
             color: white;
             border: none;
             padding: 10px 15px;
@@ -231,7 +249,7 @@
         }
         
         .nav-btn:hover {
-            background: #2980b9;
+            background: #EF4A23;
             transform: scale(1.05);
         }
     </style>
@@ -240,34 +258,36 @@
     <div class="navigation">
         <button class="nav-btn" onclick="scrollToSection('overview')">Overview</button>
         <button class="nav-btn" onclick="scrollToSection('full-courses')">Full Courses</button>
-        <button class="nav-btn" onclick="scrollToSection('integrated')">Integrated Resources</button>
+        <button class="nav-btn" onclick="scrollToSection('hybrid')">Hybrid</button>
+        <button class="nav-btn" onclick="scrollToSection('integrated')">Integrated</button>
+        <button class="nav-btn" onclick="scrollToSection('professional')">Prof Dev</button>
     </div>
     
     <div class="presentation-container">
         <!-- Title Slide -->
         <div class="slide" id="overview">
             <h1>Data Science 4 Everyone</h1>
-            <h2 style="text-align: center; border: none; color: #667eea;">Content Partner Network Evaluation Results</h2>
+            <h2 style="text-align: center; border: none; color: #6290C8;">Content Partner Network Evaluation Results</h2>
             
             <div class="summary-overview">
                 <h3 style="color: white; margin-bottom: 20px;">Partnership Assessment Summary</h3>
-                <p style="font-size: 1.1em; margin-bottom: 20px;">Comprehensive evaluation of 12 content partners across core data science education, implementation quality, and partnership engagement</p>
+                <p style="font-size: 1.1em; margin-bottom: 20px;">Comprehensive evaluation of content partners across core data science education, implementation quality, and partnership engagement</p>
                 
                 <div class="summary-stats">
                     <div class="stat-box">
-                        <div class="stat-number">12</div>
-                        <div>Partners Evaluated</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">100%</div>
-                        <div>Approval Rate</div>
+                        <div class="stat-number">14</div>
+                        <div>Partners Total</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-number">6</div>
                         <div>Full Course Offerings</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-number">6</div>
+                        <div class="stat-number">2</div>
+                        <div>Hybrid Approaches</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">5</div>
                         <div>Integrated Resources</div>
                     </div>
                 </div>
@@ -280,29 +300,6 @@
             <p style="margin-bottom: 25px; font-size: 1.1em; color: #555;">Comprehensive semester or year-long data science curricula</p>
             
             <div class="partner-grid">
-                <!-- Bootstrap World -->
-                <div class="partner-card">
-                    <div class="partner-name">Bootstrap World</div>
-                    <div class="scores">
-                        <div class="score-item score-high">Core DS: 3.0</div>
-                        <div class="score-item score-med">Implementation: 2.5</div>
-                        <div class="score-item score-high">Partnership: 3.0</div>
-                    </div>
-                    <div class="details">
-                        <div class="detail-row">
-                            <span class="detail-label">Tech:</span>
-                            <span class="detail-value"><span class="tech-tag">Pyret</span></span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Target:</span>
-                            <span class="detail-value">Mathematics, Grades 6-12</span>
-                        </div>
-                        <div class="strengths">
-                            <strong>Strengths:</strong> Exceptional inquiry-based approach, strong algebra integration, accessible online programming environment
-                        </div>
-                    </div>
-                </div>
-
                 <!-- IDS -->
                 <div class="partner-card">
                     <div class="partner-name">IDS (Introduction to Data Science)</div>
@@ -322,29 +319,6 @@
                         </div>
                         <div class="strengths">
                             <strong>Strengths:</strong> Industry-standard tools, comprehensive curriculum, no infrastructure requirements
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CourseKata -->
-                <div class="partner-card">
-                    <div class="partner-name">CourseKata</div>
-                    <div class="scores">
-                        <div class="score-item score-med">Core DS: 2.5</div>
-                        <div class="score-item score-med">Implementation: 2.5</div>
-                        <div class="score-item score-high">Partnership: 3.0</div>
-                    </div>
-                    <div class="details">
-                        <div class="detail-row">
-                            <span class="detail-label">Tech:</span>
-                            <span class="detail-value"><span class="tech-tag">R</span><span class="tech-tag">Integrated Platform</span></span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Target:</span>
-                            <span class="detail-value">High School Statistics/DS, Some Middle School</span>
-                        </div>
-                        <div class="strengths">
-                            <strong>Strengths:</strong> Comprehensive LMS platform, strong PD support, Algebra + Data Science track
                         </div>
                     </div>
                 </div>
@@ -378,7 +352,7 @@
                     <div class="scores">
                         <div class="score-item score-high">Core DS: 3.0</div>
                         <div class="score-item score-med">Implementation: 2.5</div>
-                        <div class="score-item">Partnership: TBD</div>
+                        <div class="score-item score-tbd">Partnership: TBD</div>
                     </div>
                     <div class="details">
                         <div class="detail-row">
@@ -417,13 +391,97 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Data 6 - TBD -->
+                <div class="partner-card tbd">
+                    <div class="partner-name">Data 6</div>
+                    <div class="scores">
+                        <div class="score-item score-tbd">Core DS: TBD</div>
+                        <div class="score-item score-tbd">Implementation: TBD</div>
+                        <div class="score-item score-tbd">Partnership: TBD</div>
+                    </div>
+                    <div class="details">
+                        <div class="tbd-note">
+                            <strong>Status:</strong> Evaluation pending - comprehensive rubric assessment to be completed
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UIUC - TBD -->
+                <div class="partner-card tbd">
+                    <div class="partner-name">UIUC Online Course</div>
+                    <div class="scores">
+                        <div class="score-item score-tbd">Core DS: TBD</div>
+                        <div class="score-item score-tbd">Implementation: TBD</div>
+                        <div class="score-item score-tbd">Partnership: TBD</div>
+                    </div>
+                    <div class="details">
+                        <div class="tbd-note">
+                            <strong>Status:</strong> Evaluation pending - comprehensive rubric assessment to be completed
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Course Offerings + Integrated Resources -->
+        <div class="slide" id="hybrid">
+            <h2>🔄 Full Course Offerings + Integrated Resources</h2>
+            <p style="margin-bottom: 25px; font-size: 1.1em; color: #555;">Partners offering both comprehensive curricula and flexible integration options</p>
+            
+            <div class="partner-grid">
+                <!-- Bootstrap World -->
+                <div class="partner-card">
+                    <div class="partner-name">Bootstrap World</div>
+                    <div class="scores">
+                        <div class="score-item score-high">Core DS: 3.0</div>
+                        <div class="score-item score-med">Implementation: 2.5</div>
+                        <div class="score-item score-high">Partnership: 3.0</div>
+                    </div>
+                    <div class="details">
+                        <div class="detail-row">
+                            <span class="detail-label">Tech:</span>
+                            <span class="detail-value"><span class="tech-tag">Pyret</span></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Target:</span>
+                            <span class="detail-value">Mathematics, Grades 6-12</span>
+                        </div>
+                        <div class="strengths">
+                            <strong>Strengths:</strong> Exceptional inquiry-based approach, strong algebra integration, accessible online programming environment
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CourseKata -->
+                <div class="partner-card">
+                    <div class="partner-name">CourseKata</div>
+                    <div class="scores">
+                        <div class="score-item score-med">Core DS: 2.5</div>
+                        <div class="score-item score-med">Implementation: 2.5</div>
+                        <div class="score-item score-high">Partnership: 3.0</div>
+                    </div>
+                    <div class="details">
+                        <div class="detail-row">
+                            <span class="detail-label">Tech:</span>
+                            <span class="detail-value"><span class="tech-tag">R</span><span class="tech-tag">Integrated Platform</span></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Target:</span>
+                            <span class="detail-value">High School Statistics/DS, Some Middle School</span>
+                        </div>
+                        <div class="strengths">
+                            <strong>Strengths:</strong> Comprehensive LMS platform, strong PD support, Algebra + Data Science track
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Integrated Resources -->
         <div class="slide" id="integrated">
-            <h2>🧩 Integrated Resources & Professional Development</h2>
-            <p style="margin-bottom: 25px; font-size: 1.1em; color: #555;">Resources for integration into existing curricula and teacher support</p>
+            <h2>🧩 Integrated Resources</h2>
+            <p style="margin-bottom: 25px; font-size: 1.1em; color: #555;">Resources for integration into existing curricula</p>
             
             <div class="partner-grid">
                 <!-- Code VA -->
@@ -540,7 +598,15 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
+        <!-- Professional Development -->
+        <div class="slide" id="professional">
+            <h2>👩‍🏫 Professional Development</h2>
+            <p style="margin-bottom: 25px; font-size: 1.1em; color: #555;">Specialized teacher training and support services</p>
+            
+            <div class="partner-grid">
                 <!-- Dataspire -->
                 <div class="partner-card">
                     <div class="partner-name">Dataspire</div>
@@ -560,6 +626,9 @@
                         </div>
                         <div class="strengths">
                             <strong>Strengths:</strong> Comprehensive PD model, equity focus, complements other partners
+                        </div>
+                        <div class="considerations">
+                            <strong>Note:</strong> Professional development platform rather than curriculum provider
                         </div>
                     </div>
                 </div>
